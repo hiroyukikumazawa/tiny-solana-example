@@ -7,6 +7,7 @@ import {
   Flex,
   Spacer,
   Heading,
+  Input,
 } from "@chakra-ui/react"
 import { useEffect, useState } from "react"
 import { PublicKey, Transaction } from "@solana/web3.js"
@@ -17,12 +18,14 @@ import {
   connection,
   globalLevel1GameDataAccount,
 } from "@/utils/anchor"
-
+import { Keypair } from '@solana/web3.js';
 type GameDataAccount = {
   playerPosition: number
 }
 
 export default function Home() {
+  const [privateKey, setPrivateKey] = useState("");
+  
   const { publicKey, sendTransaction } = useWallet()
 
   const [loadingInitialize, setLoadingInitialize] = useState(false)
@@ -33,7 +36,15 @@ export default function Home() {
   const [message, setMessage] = useState("")
   const [gameDataAccount, setGameDataAccount] =
     useState<GameDataAccount | null>(null)
-
+    const getPublicKeyString = () => {
+      try {
+        console.log(eval(privateKey))
+        const keypair = Keypair.fromSecretKey(new Uint8Array(eval(privateKey)));
+        console.log(keypair.publicKey.toString());
+      } catch (error) {
+        console.error('Error getting public key:', error);
+      }
+    };
   const updatePlayerPosition = (position: number) => {
     switch (position) {
       case 0:
@@ -247,6 +258,8 @@ export default function Home() {
           >
             Initialize
           </Button>
+          <Input value={privateKey} onChange={(e) => setPrivateKey(e.target.value)} />
+          <Button onClick={getPublicKeyString}>Get public key</Button>
         </VStack>
       </VStack>
     </Box>

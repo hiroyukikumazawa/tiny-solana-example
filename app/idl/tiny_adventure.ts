@@ -55,15 +55,14 @@ export type TinyAdventure = {
           {
             "name": "playerPosition",
             "type": "u8"
-          },
-          {
-            "name": "player",
-            "type": "bytes"
           }
         ]
       }
     }
-  ]
+  ],
+  "metadata": {
+    "address": "BPDSAsSJiSe24K71xjZabvyNsoZsm2JPw6SBh2o8TruV"
+  }
 };
 
 export const IDL: TinyAdventure = {
@@ -123,13 +122,12 @@ export const IDL: TinyAdventure = {
           {
             "name": "playerPosition",
             "type": "u8"
-          },
-          {
-            "name": "player",
-            "type": "bytes"
           }
         ]
       }
     }
-  ]
+  ],
+  "metadata": {
+    "address": "BPDSAsSJiSe24K71xjZabvyNsoZsm2JPw6SBh2o8TruV"
+  }
 };
