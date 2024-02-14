@@ -2,7 +2,7 @@
 seeds = false
 skip-lint = false
 [programs.devnet]
-tiny_adventure = "BPDSAsSJiSe24K71xjZabvyNsoZsm2JPw6SBh2o8TruV"
+tiny_adventure = "8YQ15XxAekDQ2xtD7sYdmMzWne3XiDWm6JfhMRC2PmPg"
 
 [registry]
 url = "https://api.apr.dev"

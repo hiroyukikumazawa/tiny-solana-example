@@ -17,6 +17,7 @@ import {
   program,
   connection,
   globalLevel1GameDataAccount,
+  initConfigAccount,
 } from "@/utils/anchor"
 import { Keypair } from '@solana/web3.js';
 type GameDataAccount = {
@@ -108,6 +109,19 @@ export default function Home() {
       } catch (error) {
         console.error(error)
       }
+    }
+  }
+
+  async function handleInitializeConfigAccount() {
+    if(publicKey) {
+      const transaction = program.methods
+        .initializeConfigAccount(publicKey)
+        .accounts({
+          newConfigAccount: initConfigAccount,
+          signer: publicKey,
+        }).transaction()
+
+      await sendAndConfirmTransaction(() => transaction, setLoadingLeft)
     }
   }
 
@@ -257,6 +271,9 @@ export default function Home() {
             onClick={handleClickInitialize}
           >
             Initialize
+          </Button>
+          <Button onClick={handleInitializeConfigAccount}>
+            Initialize Config Account
           </Button>
           <Input value={privateKey} onChange={(e) => setPrivateKey(e.target.value)} />
           <Button onClick={getPublicKeyString}>Get public key</Button>

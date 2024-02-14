@@ -24,6 +24,32 @@ export type TinyAdventure = {
       "args": []
     },
     {
+      "name": "initializeConfigAccount",
+      "accounts": [
+        {
+          "name": "newConfigAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "signer",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "authority",
+          "type": "publicKey"
+        }
+      ]
+    },
+    {
       "name": "moveLeft",
       "accounts": [
         {
@@ -48,6 +74,42 @@ export type TinyAdventure = {
   ],
   "accounts": [
     {
+      "name": "BookAccount",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "seller",
+            "type": "publicKey"
+          },
+          {
+            "name": "sellAmount",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ConfigAccount",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "authority",
+            "type": "publicKey"
+          },
+          {
+            "name": "lastBookId",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
       "name": "gameDataAccount",
       "type": {
         "kind": "struct",
@@ -61,7 +123,7 @@ export type TinyAdventure = {
     }
   ],
   "metadata": {
-    "address": "BPDSAsSJiSe24K71xjZabvyNsoZsm2JPw6SBh2o8TruV"
+    "address": "8YQ15XxAekDQ2xtD7sYdmMzWne3XiDWm6JfhMRC2PmPg"
   }
 };
 
@@ -91,6 +153,32 @@ export const IDL: TinyAdventure = {
       "args": []
     },
     {
+      "name": "initializeConfigAccount",
+      "accounts": [
+        {
+          "name": "newConfigAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "signer",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "authority",
+          "type": "publicKey"
+        }
+      ]
+    },
+    {
       "name": "moveLeft",
       "accounts": [
         {
@@ -115,6 +203,42 @@ export const IDL: TinyAdventure = {
   ],
   "accounts": [
     {
+      "name": "BookAccount",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "seller",
+            "type": "publicKey"
+          },
+          {
+            "name": "sellAmount",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ConfigAccount",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "authority",
+            "type": "publicKey"
+          },
+          {
+            "name": "lastBookId",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
       "name": "gameDataAccount",
       "type": {
         "kind": "struct",
@@ -128,6 +252,6 @@ export const IDL: TinyAdventure = {
     }
   ],
   "metadata": {
-    "address": "BPDSAsSJiSe24K71xjZabvyNsoZsm2JPw6SBh2o8TruV"
+    "address": "8YQ15XxAekDQ2xtD7sYdmMzWne3XiDWm6JfhMRC2PmPg"
   }
 };

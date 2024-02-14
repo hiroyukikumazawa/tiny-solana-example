@@ -23,7 +23,7 @@ const provider = new AnchorProvider(connection, wallet, {})
 setProvider(provider)
 
 // Tiny Adventure program ID
-const programId = new PublicKey("2F2K73Sj1ygx4N9ptCegrxEDvGNLCndrsCdmUbcHej3c")
+const programId = new PublicKey("8YQ15XxAekDQ2xtD7sYdmMzWne3XiDWm6JfhMRC2PmPg")
 
 export const program = new Program(
   IDL as Idl,
@@ -35,3 +35,9 @@ export const [globalLevel1GameDataAccount] = PublicKey.findProgramAddressSync(
   [Buffer.from("level1", "utf8")],
   programId
 )
+
+export const [initConfigAccount] = PublicKey.findProgramAddressSync(
+  [Buffer.from("init-config", "utf8")],
+  programId
+)
+
